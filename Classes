@@ -1,0 +1,78 @@
+abstract class Pessoa {
+    protected String nome;
+    protected String cpf;
+
+
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getCpf() {
+        return cpf;
+    }
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    
+    public Pessoa(String nome, String cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
+    }
+
+
+    
+    
+}
+
+abstract class Politico extends Pessoa{
+    protected String nome;
+    protected String partido;
+    protected String numeroCandidatura;
+
+
+    public String getNome(){
+        return nome;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+    public String getPartido() {
+        return partido;
+    }
+    public void setPartido(String partido) {
+        this.partido = partido;
+    }
+    public String getNumeroCandidatura() {
+        return numeroCandidatura;
+    }
+    public void setNumeroCandidatura(String numeroCandidatura) {
+        this.numeroCandidatura = numeroCandidatura;
+    }
+
+    public Politico(String nome, String cpf, String partido, String numeroCandidatura) {
+        super(nome, cpf);
+        this.partido = partido;
+        this.numeroCandidatura = numeroCandidatura;
+    }
+
+    
+
+}
+
+public abstract class prefeito extends Politico implements Votavel{
+    private String propostaGOverno;
+}
+
+interface Votavel {
+    void receberVoto();
+    int getTotalVotos();
+}
+
+interface RelatorioGerador{
+    void gerarRelatorio();
+    
+}
